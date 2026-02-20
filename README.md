@@ -108,3 +108,4 @@ On Scroll (scrub: 1.2)
 ---
 
 *Built for: Frontend Animation Assignment | ITZFIZZ Scroll Hero*
+
