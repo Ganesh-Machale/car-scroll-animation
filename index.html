@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ITZFIZZ - Experience the future of premium automotive. Scroll-driven hero section animation showcasing our brand." />
+    <title>ITZFIZZ | Scroll Car Animation</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+   
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    
+    <div class="loader" id="loader">
+      <div class="loader-bar"></div>
+    </div>
+
+   
+    <div class="section" id="hero-section">
+
+      
+      <div class="track" id="track">
+
+        
+        <div class="bg-gradient"></div>
+
+       
+        <div class="stage" id="stage">
+
+         
+          <div class="road" id="road">
+           
+            <div class="road-dash-container" id="road-dashes"></div>
+            
+            <div class="trail" id="trail"></div>
+            
+            <div class="car-wrapper" id="car">
+              <img src="car.svg" alt="McLaren Sports Car" class="car-img" id="car-img" />
+            </div>
+          </div>
+
+         
+          <div class="value-add" id="valueText">
+            <span class="value-letter">W</span>
+            <span class="value-letter">E</span>
+            <span class="value-letter">L</span>
+            <span class="value-letter">C</span>
+            <span class="value-letter">O</span>
+            <span class="value-letter">M</span>
+            <span class="value-letter">E</span>
+            <span class="value-letter value-space">&nbsp;</span>
+            <span class="value-letter">I</span>
+            <span class="value-letter">T</span>
+            <span class="value-letter">Z</span>
+            <span class="value-letter">F</span>
+            <span class="value-letter">I</span>
+            <span class="value-letter">Z</span>
+            <span class="value-letter">Z</span>
+          </div>
+
+        </div>
+        
+
+        <div class="stat-card" id="box1" style="top: 8%; right: 32%;">
+          <span class="stat-number">58%</span>
+          <span class="stat-label">Increase in pickup<br/>point usage</span>
+        </div>
+
+        <div class="stat-card" id="box2" style="bottom: 8%; right: 37%;">
+          <span class="stat-number">23%</span>
+          <span class="stat-label">Decrease in<br/>customer calls</span>
+        </div>
+
+        <div class="stat-card" id="box3" style="top: 8%; right: 8%;">
+          <span class="stat-number">27%</span>
+          <span class="stat-label">Growth in<br/>fleet efficiency</span>
+        </div>
+
+        <div class="stat-card" id="box4" style="bottom: 8%; right: 10%;">
+          <span class="stat-number">40%</span>
+          <span class="stat-label">Faster delivery<br/>turnaround</span>
+        </div>
+
+      </div>
+
+    </div>
+    
+    
+    <div class="after-section">
+      <div class="after-content">
+        <h2 class="after-title">Drive the future.</h2>
+        <p class="after-sub">Premium automotive innovation, engineered for those who demand excellence.</p>
+        <a href="#" class="cta-btn" id="cta-button">Explore Models</a>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

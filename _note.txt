@@ -1,0 +1,4 @@
+/* ============================================================
+   car.svg — Clean top-view sports car silhouette
+   Used instead of external image for self-contained repo
+   ============================================================ */

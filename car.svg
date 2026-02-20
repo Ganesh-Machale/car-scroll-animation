@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200">
+  <defs>
+    <!-- Body paint gradient (red to dark red) -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FF2020"/>
+      <stop offset="40%"  stop-color="#CC0000"/>
+      <stop offset="100%" stop-color="#880000"/>
+    </linearGradient>
+    <!-- Roof/glass dark -->
+    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
+    </linearGradient>
+    <!-- Glass reflection -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#7fd8ff" stop-opacity="0.8"/>
+      <stop offset="60%"  stop-color="#3ab5d9" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#1a6e8a" stop-opacity="0.7"/>
+    </linearGradient>
+    <!-- Highlight shine on body -->
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="white"   stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="white"   stop-opacity="0"/>
+    </linearGradient>
+    <!-- Tyre -->
+    <radialGradient id="tyreGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#3a3a3a"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </radialGradient>
+    <!-- Rim spoke -->
+    <radialGradient id="rimGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#999"/>
+      <stop offset="70%"  stop-color="#555"/>
+      <stop offset="100%" stop-color="#333"/>
+    </radialGradient>
+    <!-- Drop shadow filter -->
+    <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+    <!-- Headlight glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ===================== SHADOW ===================== -->
+  <ellipse cx="240" cy="188" rx="195" ry="9" fill="#000" opacity="0.35"/>
+
+  <!-- ===================== BODY ===================== -->
+  <!-- Main body shape: wide, flat, aerodynamic supercar top-view -->
+  <path d="
+    M 95  100
+    Q 100  40  140  22
+    L 175  14
+    Q 240  6   305  14
+    L 340  22
+    Q 380  40  385  100
+    Q 380  160 340  178
+    L 305  186
+    Q 240  194 175  186
+    L 140  178
+    Q 100  160  95  100 Z"
+    fill="url(#bodyGrad)" filter="url(#dropshadow)"/>
+
+  <!-- Side skirt left -->
+  <path d="M 95 85 Q 88 100 95 115 L 110 115 Q 105 100 110 85 Z"
+        fill="#990000" opacity="0.9"/>
+  <!-- Side skirt right -->
+  <path d="M 385 85 Q 392 100 385 115 L 370 115 Q 375 100 370 85 Z"
+        fill="#990000" opacity="0.9"/>
+
+  <!-- Front nose / splitter -->
+  <path d="M 140 22 L 175 10 Q 240 2 305 10 L 340 22 L 330 30 Q 240 18 150 30 Z"
+        fill="#770000"/>
+  <path d="M 155 26 Q 240 15 325 26 L 320 34 Q 240 22 160 34 Z"
+        fill="#333" opacity="0.5"/>
+
+  <!-- Rear diffuser -->
+  <path d="M 140 178 L 175 190 Q 240 198 305 190 L 340 178 L 330 170 Q 240 182 150 170 Z"
+        fill="#770000"/>
+  <path d="M 158 174 Q 240 184 322 174 L 318 168 Q 240 178 162 168 Z"
+        fill="#222" opacity="0.6"/>
+
+  <!-- ===================== BODY HIGHLIGHT SHINE ===================== -->
+  <path d="M 155 24 Q 240 12 325 24 L 310 80 Q 240 70 170 80 Z"
+        fill="url(#shineGrad)"/>
+  <path d="M 120 36 Q 116 100 120 164" stroke="white" stroke-width="3"
+        fill="none" opacity="0.1" stroke-linecap="round"/>
+  <path d="M 360 36 Q 364 100 360 164" stroke="white" stroke-width="3"
+        fill="none" opacity="0.1" stroke-linecap="round"/>
+
+  <!-- Central spine line -->
+  <line x1="240" y1="10" x2="240" y2="190"
+        stroke="white" stroke-width="1.5" opacity="0.07"/>
+
+  <!-- ===================== ROOF / CABIN ===================== -->
+  <path d="M 178 60 Q 240 44 302 60 L 318 120 Q 240 134 162 120 Z"
+        fill="url(#roofGrad)" rx="8"/>
+  <!-- Cabin edge highlight -->
+  <path d="M 180 62 Q 240 46 300 62 L 296 70 Q 240 56 184 70 Z"
+        fill="white" opacity="0.1"/>
+
+  <!-- ===================== WINDSHIELD (front) ===================== -->
+  <path d="M 183 63 Q 240 48 297 63 L 310 100 Q 240 108 170 100 Z"
+        fill="url(#glassGrad)" opacity="0.85"/>
+  <!-- Windshield shine -->
+  <path d="M 192 65 Q 240 52 288 65 L 280 84 Q 240 74 200 84 Z"
+        fill="white" opacity="0.18"/>
+  <!-- Wiper -->
+  <line x1="240" y1="68" x2="200" y2="98"
+        stroke="#111" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- ===================== REAR WINDOW ===================== -->
+  <path d="M 183 137 Q 240 128 297 137 L 310 162 Q 240 170 170 162 Z"
+        fill="url(#glassGrad)" opacity="0.55"/>
+
+  <!-- ===================== VENTS / DETAILS ===================== -->
+  <!-- Hood vents left -->
+  <rect x="162" y="36" width="28" height="6" rx="2"
+        fill="#440000" opacity="0.8"/>
+  <rect x="162" y="45" width="22" height="4" rx="2"
+        fill="#440000" opacity="0.6"/>
+  <!-- Hood vents right -->
+  <rect x="290" y="36" width="28" height="6" rx="2"
+        fill="#440000" opacity="0.8"/>
+  <rect x="296" y="45" width="22" height="4" rx="2"
+        fill="#440000" opacity="0.6"/>
+
+  <!-- Rear vents left -->
+  <rect x="162" y="158" width="28" height="5" rx="2"
+        fill="#440000" opacity="0.8"/>
+  <rect x="165" y="165" width="22" height="4" rx="2"
+        fill="#440000" opacity="0.6"/>
+  <!-- Rear vents right -->
+  <rect x="290" y="158" width="28" height="5" rx="2"
+        fill="#440000" opacity="0.8"/>
+  <rect x="293" y="165" width="22" height="4" rx="2"
+        fill="#440000" opacity="0.6"/>
+
+  <!-- ===================== HEADLIGHTS ===================== -->
+  <!-- Left headlight -->
+  <path d="M 118 24 Q 108 36 106 56 L 126 60 Q 128 40 134 26 Z"
+        fill="#ffe066" filter="url(#glow)" opacity="0.95"/>
+  <path d="M 119 26 Q 111 36 109 52 L 122 55 Q 124 40 130 28 Z"
+        fill="white" opacity="0.6"/>
+  <!-- DRL strip left -->
+  <path d="M 107 36 Q 105 46 106 56 L 112 57 Q 111 46 112 36 Z"
+        fill="#fff" opacity="0.85" filter="url(#glow)"/>
+
+  <!-- Right headlight -->
+  <path d="M 362 24 Q 372 36 374 56 L 354 60 Q 352 40 346 26 Z"
+        fill="#ffe066" filter="url(#glow)" opacity="0.95"/>
+  <path d="M 361 26 Q 369 36 371 52 L 358 55 Q 356 40 350 28 Z"
+        fill="white" opacity="0.6"/>
+  <!-- DRL strip right -->
+  <path d="M 373 36 Q 375 46 374 56 L 368 57 Q 369 46 368 36 Z"
+        fill="#fff" opacity="0.85" filter="url(#glow)"/>
+
+  <!-- ===================== TAIL LIGHTS ===================== -->
+  <!-- Left tail light -->
+  <path d="M 120 176 Q 110 164 108 144 L 128 140 Q 130 160 136 174 Z"
+        fill="#ff2222" filter="url(#glow)" opacity="0.95"/>
+  <path d="M 121 174 Q 112 164 110 148 L 120 145 Q 122 162 128 172 Z"
+        fill="#ff9090" opacity="0.55"/>
+  <!-- Inner red strip -->
+  <path d="M 109 152 Q 108 158 108 164 L 114 165 Q 114 158 115 152 Z"
+        fill="#ff0000" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- Right tail light -->
+  <path d="M 360 176 Q 370 164 372 144 L 352 140 Q 350 160 344 174 Z"
+        fill="#ff2222" filter="url(#glow)" opacity="0.95"/>
+  <path d="M 359 174 Q 368 164 370 148 L 360 145 Q 358 162 352 172 Z"
+        fill="#ff9090" opacity="0.55"/>
+  <!-- Inner red strip -->
+  <path d="M 371 152 Q 372 158 372 164 L 366 165 Q 366 158 365 152 Z"
+        fill="#ff0000" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- ===================== EXHAUST ===================== -->
+  <ellipse cx="196" cy="188" rx="10" ry="5" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <ellipse cx="196" cy="188" rx="6"  ry="3" fill="#050505"/>
+  <ellipse cx="284" cy="188" rx="10" ry="5" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <ellipse cx="284" cy="188" rx="6"  ry="3" fill="#050505"/>
+
+  <!-- ===================== SIDE MIRRORS ===================== -->
+  <!-- Left mirror -->
+  <path d="M 100 84 Q 86 92 84 100 Q 86 108 100 116 L 108 100 Z"
+        fill="#CC0000" stroke="#880000" stroke-width="0.8"/>
+  <ellipse cx="92" cy="100" rx="5" ry="7" fill="#333" opacity="0.85"/>
+  <!-- Right mirror -->
+  <path d="M 380 84 Q 394 92 396 100 Q 394 108 380 116 L 372 100 Z"
+        fill="#CC0000" stroke="#880000" stroke-width="0.8"/>
+  <ellipse cx="388" cy="100" rx="5" ry="7" fill="#333" opacity="0.85"/>
+
+  <!-- ===================== TYRES (4x) ===================== -->
+  <!-- Front-Left tyre -->
+  <rect x="88" y="50" width="26" height="64" rx="12" fill="url(#tyreGrad)" stroke="#444" stroke-width="1.2"/>
+  <rect x="91" y="54" width="20" height="56" rx="9"  fill="#1e1e1e"/>
+  <!-- tyre tread marks -->
+  <line x1="89"  y1="66" x2="114" y2="66" stroke="#333" stroke-width="1.5"/>
+  <line x1="89"  y1="74" x2="114" y2="74" stroke="#333" stroke-width="1.5"/>
+  <line x1="89"  y1="82" x2="114" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="89"  y1="90" x2="114" y2="90" stroke="#333" stroke-width="1.5"/>
+  <line x1="89"  y1="98" x2="114" y2="98" stroke="#333" stroke-width="1.5"/>
+  <!-- rim -->
+  <circle cx="101" cy="82" r="14" fill="url(#rimGrad)" stroke="#666" stroke-width="1.2"/>
+  <circle cx="101" cy="82" r="6"  fill="#888" stroke="#aaa" stroke-width="0.8"/>
+  <!-- spokes -->
+  <line x1="101" y1="68" x2="101" y2="96" stroke="#bbb" stroke-width="2"/>
+  <line x1="87"  y1="82" x2="115" y2="82" stroke="#bbb" stroke-width="2"/>
+  <line x1="91"  y1="72" x2="111" y2="92" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="111" y1="72" x2="91"  y2="92" stroke="#bbb" stroke-width="1.5"/>
+  <!-- rim highlight -->
+  <path d="M 93 70 Q 101 66 109 70" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+
+  <!-- Front-Right tyre -->
+  <rect x="366" y="50" width="26" height="64" rx="12" fill="url(#tyreGrad)" stroke="#444" stroke-width="1.2"/>
+  <rect x="369" y="54" width="20" height="56" rx="9"  fill="#1e1e1e"/>
+  <line x1="367" y1="66" x2="392" y2="66" stroke="#333" stroke-width="1.5"/>
+  <line x1="367" y1="74" x2="392" y2="74" stroke="#333" stroke-width="1.5"/>
+  <line x1="367" y1="82" x2="392" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="367" y1="90" x2="392" y2="90" stroke="#333" stroke-width="1.5"/>
+  <line x1="367" y1="98" x2="392" y2="98" stroke="#333" stroke-width="1.5"/>
+  <circle cx="379" cy="82" r="14" fill="url(#rimGrad)" stroke="#666" stroke-width="1.2"/>
+  <circle cx="379" cy="82" r="6"  fill="#888" stroke="#aaa" stroke-width="0.8"/>
+  <line x1="379" y1="68" x2="379" y2="96" stroke="#bbb" stroke-width="2"/>
+  <line x1="365" y1="82" x2="393" y2="82" stroke="#bbb" stroke-width="2"/>
+  <line x1="369" y1="72" x2="389" y2="92" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="389" y1="72" x2="369" y2="92" stroke="#bbb" stroke-width="1.5"/>
+  <path d="M 371 70 Q 379 66 387 70" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+
+  <!-- Rear-Left tyre (slightly wider) -->
+  <rect x="85" y="90" width="30" height="72" rx="14" fill="url(#tyreGrad)" stroke="#444" stroke-width="1.2"/>
+  <rect x="88" y="94" width="24" height="64" rx="11"  fill="#1e1e1e"/>
+  <line x1="86"  y1="106" x2="115" y2="106" stroke="#333" stroke-width="1.5"/>
+  <line x1="86"  y1="114" x2="115" y2="114" stroke="#333" stroke-width="1.5"/>
+  <line x1="86"  y1="122" x2="115" y2="122" stroke="#333" stroke-width="1.5"/>
+  <line x1="86"  y1="130" x2="115" y2="130" stroke="#333" stroke-width="1.5"/>
+  <line x1="86"  y1="138" x2="115" y2="138" stroke="#333" stroke-width="1.5"/>
+  <circle cx="100" cy="126" r="16" fill="url(#rimGrad)" stroke="#666" stroke-width="1.2"/>
+  <circle cx="100" cy="126" r="7"  fill="#888" stroke="#aaa" stroke-width="0.8"/>
+  <line x1="100" y1="110" x2="100" y2="142" stroke="#bbb" stroke-width="2"/>
+  <line x1="84"  y1="126" x2="116" y2="126" stroke="#bbb" stroke-width="2"/>
+  <line x1="89"  y1="115" x2="111" y2="137" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="111" y1="115" x2="89"  y2="137" stroke="#bbb" stroke-width="1.5"/>
+  <path d="M 90 113 Q 100 108 110 113" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+
+  <!-- Rear-Right tyre -->
+  <rect x="365" y="90" width="30" height="72" rx="14" fill="url(#tyreGrad)" stroke="#444" stroke-width="1.2"/>
+  <rect x="368" y="94" width="24" height="64" rx="11"  fill="#1e1e1e"/>
+  <line x1="366" y1="106" x2="395" y2="106" stroke="#333" stroke-width="1.5"/>
+  <line x1="366" y1="114" x2="395" y2="114" stroke="#333" stroke-width="1.5"/>
+  <line x1="366" y1="122" x2="395" y2="122" stroke="#333" stroke-width="1.5"/>
+  <line x1="366" y1="130" x2="395" y2="130" stroke="#333" stroke-width="1.5"/>
+  <line x1="366" y1="138" x2="395" y2="138" stroke="#333" stroke-width="1.5"/>
+  <circle cx="380" cy="126" r="16" fill="url(#rimGrad)" stroke="#666" stroke-width="1.2"/>
+  <circle cx="380" cy="126" r="7"  fill="#888" stroke="#aaa" stroke-width="0.8"/>
+  <line x1="380" y1="110" x2="380" y2="142" stroke="#bbb" stroke-width="2"/>
+  <line x1="364" y1="126" x2="396" y2="126" stroke="#bbb" stroke-width="2"/>
+  <line x1="369" y1="115" x2="391" y2="137" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="391" y1="115" x2="369" y2="137" stroke="#bbb" stroke-width="1.5"/>
+  <path d="M 370 113 Q 380 108 390 113" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+
+  <!-- ===================== BRAND BADGE ===================== -->
+  <circle cx="240" cy="20" r="8" fill="#880000" stroke="#ffcc00" stroke-width="1.5"/>
+  <text x="240" y="24" text-anchor="middle" font-size="7"
+        font-family="Arial" font-weight="bold" fill="#ffcc00">F</text>
+</svg>

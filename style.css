@@ -1,0 +1,377 @@
+/* 
+   ITZFIZZ | style.css
+   Premium Scroll-Driven Hero Animation
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-bg: #111111;
+    --clr-road: #1c1c1c;
+    --clr-trail: #45db7d;
+    --clr-white: #ffffff;
+    --clr-accent: #45db7d;
+    --clr-accent2: #6ac9ff;
+    --clr-yellow: #def54f;
+    --clr-orange: #fa7328;
+    --clr-dark-card: #2a2a2a;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--clr-bg);
+    color: var(--clr-white);
+    overflow-x: hidden;
+}
+
+/* ---- Loader ---- */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: flex-end;
+}
+
+.loader-bar {
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--clr-trail), var(--clr-accent2));
+    transition: width 0.05s linear;
+    box-shadow: 0 0 12px var(--clr-trail);
+}
+
+/* 
+   HERO SECTION
+   */
+.section {
+    height: 300vh;
+    /* tall enough for scroll travel */
+    position: relative;
+    background: var(--clr-bg);
+}
+
+/* Sticky container — stays pinned while scrolling */
+.track {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d4d4d4;
+}
+
+/* Subtle gradient overlay */
+.bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(69, 219, 125, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---- Stage (holds road + headline) ---- */
+.stage {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 
+   BIG HEADLINE BEHIND THE ROAD
+   */
+.value-add {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    padding-left: 3%;
+    top: calc(50% - 180px);
+    /* sits above the road strip */
+    z-index: 2;
+    pointer-events: none;
+    gap: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.value-letter {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 10rem);
+    color: #111;
+    opacity: 0;
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    will-change: opacity;
+}
+
+.value-space {
+    width: 1.2ch;
+    display: inline-block;
+}
+
+/* 
+   ROAD
+   */
+.road {
+    width: 100vw;
+    height: 220px;
+    background-color: var(--clr-road);
+    position: relative;
+    overflow: hidden;
+    border-top: 2px solid #2e2e2e;
+    border-bottom: 2px solid #2e2e2e;
+    z-index: 3;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Dashed center line */
+.road-dash-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    height: 4px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 30px;
+}
+
+.road-dash {
+    flex-shrink: 0;
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+}
+
+/* Green trail */
+.trail {
+    height: 100%;
+    background: var(--clr-trail);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    will-change: width;
+    box-shadow: 4px 0 24px rgba(69, 219, 125, 0.5);
+    transition: width 0s;
+}
+
+/* Car */
+.car-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    will-change: transform;
+}
+
+.car-img {
+    height: 200px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.75));
+}
+
+ /* Start Car  */
+.stat-card {
+    opacity: 0;
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px 28px;
+    border-radius: 12px;
+    min-width: 170px;
+    backdrop-filter: blur(4px);
+    transition: opacity 0.1s;
+    will-change: opacity;
+}
+
+.stat-card.show {
+    opacity: 1;
+}
+
+/* Card colour themes */
+#box1 {
+    background: var(--clr-yellow);
+    color: #111;
+}
+
+#box2 {
+    background: var(--clr-accent2);
+    color: #111;
+}
+
+#box3 {
+    background: var(--clr-dark-card);
+    color: #fff;
+    border: 1px solid #3a3a3a;
+}
+
+#box4 {
+    background: var(--clr-orange);
+    color: #111;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    line-height: 1;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    font-weight: 500;
+    opacity: 0.82;
+    max-width: 140px;
+}
+
+/* 
+   AFTER SECTION
+*/
+.after-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.after-section::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(69, 219, 125, 0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.after-content {
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+}
+
+.after-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    background: linear-gradient(135deg, #ffffff 30%, var(--clr-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.after-sub {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 16px 48px;
+    background: var(--clr-trail);
+    color: #111;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 30px rgba(69, 219, 125, 0.35);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 50px rgba(69, 219, 125, 0.6);
+}
+
+/* 
+   RESPONSIVE ADJUSTMENTS
+  */
+@media (max-width: 768px) {
+    .value-letter {
+        font-size: clamp(2.2rem, 7vw, 5rem);
+    }
+
+    .stat-card {
+        padding: 16px 20px;
+        min-width: 130px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.72rem;
+    }
+
+    #box1 {
+        right: auto !important;
+        left: 4% !important;
+        top: 6% !important;
+    }
+
+    #box2 {
+        right: auto !important;
+        left: 4% !important;
+        bottom: 6% !important;
+    }
+
+    #box3 {
+        right: 4% !important;
+        top: 6% !important;
+    }
+
+    #box4 {
+        right: 4% !important;
+        bottom: 6% !important;
+    }
+}
